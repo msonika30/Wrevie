@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Wrevie</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="/#page-top">Wrevie</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#team">Team</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="" href="/careers.html">Careers</a>
+                    </li>
+                    <li>
+                        <a class="" href="/blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="/app/html/login.html" class="btn btn-xl">login/Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="intro-text wrevie-demo-header">
+                <div class="wrevie-demo-info">The building block of Wrevie is a machine learning algorithm that can process textual data to provide ratings corresponding to user-defined attributes. Here, we showcase this building block by comparing the ratings predicted by our technology with manual ratings.</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="demo">
+        <div class="container" id="reviewsMain">
+            <div id="sampleReviews" style="margin-top:30px;margin-bottom:30px">
+                <div class="row hidden-xs hidden-sm">
+                    <div id="try-wrevie" class="col-md-6"><a href="#demoInitModal" class="btn btn-sm pull-left" data-toggle="modal">What am I seeing here</a></div>
+                    <div id="try-wrevie" class="col-md-6 "><a class="btn btn-sm pull-right" onClick="getReviews('true')">Let’s try one more review</a></div>
+                </div>
+                <div class="row hidden-md hidden-lg">
+                    <div id="try-wrevie" class="col-sm-12 col-xs-12 margin-mobile text-center"><a href="#demoInitModal" class="btn btn-sm" data-toggle="modal">What am I seeing here</a></div>
+                    <div id="try-wrevie" class="col-sm-12 col-xs-12 margin-mobile text-center"><a class="btn btn-sm" onClick="getReviews('true')">Let’s try one more review</a></div>
+                </div>
+                <div class="loader-animation" id="loaderAnimation">
+                  <div class="review-three-bounce">
+                    <div class="review-child review-bounce1"></div>
+                    <div class="review-child review-bounce2"></div>
+                    <div class="review-child review-bounce3"></div>
+                  </div>
+                </div>
+                <div id="reviewContent">
+                    <div class="sample-review-text" id="sampleReview" style="display:none;">
+                    </div>
+                    <div class="view-sample-ratings">
+                        <div id="ratings-div" style="display:none;">
+                            <table id="ratings-table">
+                              <thead>
+                                <tr>
+                                  <th>Attributes</th>
+                                  <th>User Ratings</th>
+                                  <th style="height:100px;">Wrevie's Ratings</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="try-wrevie" class="col-xs-12 text-center"><a href class="btn btn-xl" onClick="tryWrevie()">Try Wrevie</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="tryWrevie" style="display:none;">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="margin-mobile text-center">
+                        <h2>Get ratings for your review</h2>
+                    </div>
+                    <div contenteditable="true" type="text" class="form-control editor" id="review" data-ph="Write your review here" value=""></div>
+                    <div class="no-border row">
+                        <div class="checkbox col-md-8 col-xs-12 margin-mobile">
+                          <label><input type="checkbox" id="userTestRatings" onClick="showUserTestRatings()">Give ratings to compare</label>
+                        </div>
+                        <div class="col-md-4 col-xs-12 test-btn-div">
+                            <button type="submit" class='btn btn-sm' onClick="loadSampleReviews()">Go Back</button>
+                            <button type="submit" class='btn btn-sm' onClick="reset()">Reset</button>
+                            <button type="submit" class='btn btn-sm' onClick="wreview()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="loader-animation" id="loaderAnimationTest" style="display:none;">
+                  <div class="review-three-bounce">
+                    <div class="review-child review-bounce1"></div>
+                    <div class="review-child review-bounce2"></div>
+                    <div class="review-child review-bounce3"></div>
+                  </div>
+                </div>
+                <div class="view-sample-ratings">
+                    <div id="ratings-div-test" style="display:none;">
+                        <table id="ratings-table-test">
+                          <thead>
+                            <tr id="table-test-header">
+                              <th>&nbsp;</th>
+                              <th style="display:none;">User Ratings(To Compare)</th>
+                              <th style="height:100px;display:none;">Wrevie's Ratings</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Wrevie 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#privacyPolicyModal" data-toggle="modal">Privacy Policy</a>
+                        </li>
+                        <li><a href="#termsOfUseModal" data-toggle="modal">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- What am i seeing here? Modal -->
+    <div class="portfolio-modal modal fade" id="demoInitModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal hidden-xs" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2 class="hidden-xs">Welcome to Wrevie Demo!</h2>
+                            <h3 class="display-xs hidden-sm hidden-md hidden-lg">Welcome to Wrevie Demo!</h3>
+                            <p class="item-intro">Here we demonstrate the building block of Wrevie’s solutions:</p>
+                            <ul class="demo-modal-info">
+                                <li class="mobile-margin">We obtain real customer reviews and the corresponding attribute wise ratings from users based on their experience.</li>
+                                <li class="mobile-margin">The attributes are customizable by the user. Here, we choose attributes that are important in the context of hotel experience.</li>
+                                <li class="mobile-margin">We compare the accuracy of ratings predicted by our technology against the ones provided by the user.</li>
+                            </ul>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal hidden-xs" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Privacy policy</h2>
+                            <p class="item-intro text-muted">Privacy policy of Wrevie.</p>
+                            <p>Write down your privacy policy here. It can be a long paragraph or a short one or a one-liner. I dunno! Sreeta .. write the content here ! :P</p>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="termsOfUseModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal hidden-xs" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Terms of use</h2>
+                            <p class="item-intro text-muted">If you want to use Wrevie, follow the conditions.</p>
+                            <p>Terms and conditions and all...blah blah blah</p>
+                            <ol class="list-group">
+                                <li class="list-group-item">
+                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
+                                </li>
+                                <li class="list-group-item">
+                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
+                                </li>
+                            </ol>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+
+    <!-- Demo page init-->
+    <script src="js/myJquery.js"></script>
+    <script>
+        var tryParam = getParameterByName('try');
+        $('#loaderAnimation').show();
+        $("html, body").animate({ scrollTop: 0}, 1000);
+        if(tryParam && tryParam === 'true'){
+            $('#reviewsMain').css('display', 'none');
+            testWrevie();
+        }else{
+            var succCallBack = function (){
+                getReviews();
+            }
+            var errCallBack = function (){
+                showError();
+            }
+            getBtypes(succCallBack, errCallBack);
+            $('#demoInitModal').modal('show');
+        }
+    </script>
+</body>
+
+</html>
