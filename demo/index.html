@@ -128,8 +128,11 @@
                         </div>
                     </div>
                 </div>
+                <div id="try-wrevie-mobile" class="col-sm-12 col-xs-12 margin-mobile text-center hidden-md hidden-lg" style="display:none;"><a class="btn btn-sm" onClick="getReviews('true')">Let’s try one more review</a>
+                </div>
                 <div class="row">
-                    <div id="try-wrevie" class="col-xs-12 text-center"><a href class="btn btn-xl" onClick="tryWrevie()">Try Wrevie</a></div>
+                	<div class="solutions-info text-center">Using this building block, Wrevie has built solutions to help businesses improve their customer engagement, retention and GMV matrices. Visit our solutions page to see it in action.</div>
+                    <div id="try-wrevie" class="col-xs-12 text-center"><a href="/#services" class="btn btn-xl">Wrevie Solutions</a></div>
                 </div>
             </div>
         </div>
@@ -176,6 +179,7 @@
             </div>
         </div>
     </section>
+    <a href="#" id="scrollTop" class="demoScrollToTop"></a>
 
     <footer>
         <div class="container">
@@ -187,17 +191,9 @@
                     <ul class="list-inline social-buttons">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        <li><a onClick="tryWrevie()"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#privacyPolicyModal" data-toggle="modal">Privacy Policy</a>
-                        </li>
-                        <li><a href="#termsOfUseModal" data-toggle="modal">Terms of Use</a>
                         </li>
                     </ul>
                 </div>
@@ -221,72 +217,27 @@
                             <h2 class="hidden-xs">Welcome to Wrevie Demo!</h2>
                             <h3 class="display-xs hidden-sm hidden-md hidden-lg">Welcome to Wrevie Demo!</h3>
                             <p class="item-intro">Here we demonstrate the building block of Wrevie’s solutions:</p>
-                            <ul class="demo-modal-info">
-                                <li class="mobile-margin">We obtain real customer reviews and the corresponding attribute wise ratings from users based on their experience.</li>
-                                <li class="mobile-margin">The attributes are customizable by the user. Here, we choose attributes that are important in the context of hotel experience.</li>
-                                <li class="mobile-margin">We compare the accuracy of ratings predicted by our technology against the ones provided by the user.</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Portfolio Modal 2 -->
-    <div class="portfolio-modal modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal hidden-xs" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Privacy policy</h2>
-                            <p class="item-intro text-muted">Privacy policy of Wrevie.</p>
-                            <p>Write down your privacy policy here. It can be a long paragraph or a short one or a one-liner. I dunno! Sreeta .. write the content here ! :P</p>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modal 3 -->
-    <div class="portfolio-modal modal fade" id="termsOfUseModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal hidden-xs" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2>Terms of use</h2>
-                            <p class="item-intro text-muted">If you want to use Wrevie, follow the conditions.</p>
-                            <p>Terms and conditions and all...blah blah blah</p>
-                            <ol class="list-group">
-                                <li class="list-group-item">
-                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
-                                </li>
-                                <li class="list-group-item">
-                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
-                                </li>
-                                <li class="list-group-item">
-                                    <p>Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.Condition for terms of use.</p>
-                                </li>
-                            </ol>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            <div class="row text-center demo-modal-info">
+				                <div class="col-md-4">
+				                    <span class="fa-stack fa-4x">
+				                        <img src="img/Customer-Review.png" class="img-responsive margin-mobile" alt="">
+				                    </span>
+				                    <div>We obtain real customer reviews and the corresponding attribute wise ratings from users based on their experience.</div>
+				                </div>
+				                <div class="col-md-4">
+				                    <span class="fa-stack fa-4x">
+				                        <img src="img/checklist.jpg" class="img-responsive margin-mobile" alt="">
+				                    </span>
+				                    <div>The attributes are customizable by the user. Here, we choose attributes that are important in the context of hotel experience.</div>
+				                </div>
+				                <div class="col-md-4">
+				                    <span class="fa-stack fa-4x">
+				                        <img src="img/ratings.jpg" class="img-responsive margin-mobile" alt="">
+				                    </span>
+				                    <div>We compare the accuracy of ratings predicted by our technology against the ones provided by the user.</div>
+				                </div>
+				            </div>
+                            <button type="button" class="btn btn-primary margin-mobile" data-dismiss="modal"><i class="fa fa-times"></i>Proceed to Demo</button>
                         </div>
                     </div>
                 </div>
@@ -311,6 +262,7 @@
     <!-- Demo page init-->
     <script src="js/myJquery.js"></script>
     <script>
+    	initDemoPage();
         var tryParam = getParameterByName('try');
         $('#loaderAnimation').show();
         $("html, body").animate({ scrollTop: 0}, 1000);
@@ -325,7 +277,6 @@
                 showError();
             }
             getBtypes(succCallBack, errCallBack);
-            $('#demoInitModal').modal('show');
         }
     </script>
 </body>
