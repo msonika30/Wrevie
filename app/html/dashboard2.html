@@ -80,10 +80,6 @@
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-bell"></i></a>
-          </li>
         </ul>
       </div>
 
@@ -106,8 +102,8 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="dashboard1.html"><i class="fa fa-circle-o"></i> Dashboard 1</a></li>
-            <li><a href="dashboard2.html"><i class="fa fa-circle-o"></i> Dashboard 2</a></li>
+            <li><a href="dashboard1.html"><i class="fa fa-circle-o"></i> Dashboard 1</a></li>
+            <li class="active"><a href="dashboard2.html"><i class="fa fa-circle-o"></i> Dashboard 2</a></li>
           </ul>
         </li>
       </ul>
@@ -120,7 +116,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Overall ratings
+        Service wise ratings and reviews
       </h1>
       <!-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -130,19 +126,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <!-- all services -->
-      <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title">Services</h3>
-          <div class="box-tools pull-right">
-            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          <div class="services" id="servicesDiv">
-          </div>
-        </div><!-- /.box-body -->
-      </div><!-- /.box -->
+      <!-- time picker -->
       <div class="box box-info">
         <div class="box-header with-border">
           <h3 class="box-title">Select Time Ranges</h3>
@@ -151,46 +135,74 @@
           </div>
         </div>
         <div class="box-body">
-          <!-- time picker -->
           <div class="row">
-              <div class='col-sm-5'>
-                  <div class="form-group">
-                      <div class='input-group date' id='datetimepicker1'>
-                          <input type='text' id="from_date" class="form-control" readonly placeholder="From" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class='col-sm-5'>
-                  <div class="form-group">
-                      <div class='input-group date' id='datetimepicker2'>
-                          <input type='text' id="to_date" class="form-control" readonly placeholder="To" />
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class='col-sm-2'>
+            <div class='col-sm-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' id="from_date" class="form-control" readonly placeholder="From"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-5'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' id="to_date" class="form-control" readonly placeholder="To"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-2'>
                 <button type="button" class="btn btn-default" id="getData">Get data</button>
               </div>
           </div>
         </div>
       </div>
-      <!-- BAR CHART -->
+      <!-- LINE CHART -->
       <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">Overall</h3>
+          <h3 class="box-title">Report</h3>
           <div class="box-tools pull-right">
             <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
         </div>
         <div class="box-body">
-          <div class="chart" id="barchartarea">
-            <canvas id="barChart" style="height:230px"></canvas>
+          <div class="servicefilters">
+            <div class="form-group">
+              <div class="col-sm-4" style="float: right;"> 
+                <div id="servicefilterinput">
+                  <input class="form-control" type="text" value="" placeholder="Select service" name="txt_uservice" id="servicefilterinputdropdown">
+                  <div class="dropdown">
+                    <span class="add-on dropdown-toggle" data-toggle="dropdown" style="float:right; position: relative; top: -34px">
+                        <a class="btn btn-default"><i class="fa fa-chevron-down" style="height: 20px"></i></a>
+                    </span>
+                    <ul class="dropdown-menu dropdown-menu-service-filters" id="0">
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="chart" id="linechartarea">
+            <canvas id="lineChart" style="height:250px"></canvas>
+          </div>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Reviews</h3>
+          <div class="box-tools pull-right">
+            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+          <ul class="list-group reviewlist">
+          </ul>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
 
@@ -206,59 +218,6 @@
     <strong>Copyright © 2016 Wrevie.</strong> All rights
     reserved.
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-bell"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Notifications</h3>
-        <div class="reviewfilters">
-          <div class="reviewfilter allreview">
-            <i class="fa fa-envelope"></i>
-          </div>
-          <div class="reviewfilter goodreview bg-green reviewfiltericons">
-            <i class="fa fa-thumbs-up"></i>
-          </div>
-          <div class="reviewfilter neutralreview bg-yellow reviewfiltericons">
-            <i class="fa fa-dot-circle-o"></i>
-          </div>
-          <div class="reviewfilter badreview bg-red reviewfiltericons">
-            <i class="fa fa-thumbs-down"></i>
-          </div>
-        </div>
-        <div class="servicefilters">
-          <div class="form-group">
-            <div class="col-sm-12"> 
-              <div id="servicefilterinput">
-                <input class="form-control" type="text" value="" placeholder="Select service" name="txt_uservice" id="servicefilterinputdropdown" readonly="">
-                <div class="dropdown">
-                  <span class="add-on dropdown-toggle" data-toggle="dropdown" style="float:right; position: relative; top: -34px">
-                      <a class="btn btn-default"><i class="fa fa-chevron-down" style="height: 20px"></i></a>
-                  </span>
-                  <ul class="dropdown-menu dropdown-menu-service-filters" id="0">
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <ul class="control-sidebar-menu allreviews">
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>
 
 </div>
 <!-- ./wrapper -->
@@ -283,8 +242,8 @@
 <script src="../../AdminLTE/js/jquery.slimscroll.min.js"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="../../AdminLTE/js/Chart.min.js"></script>
-<!-- Dashboard 1 -->
-<script src="../js/dashboard1.js"></script>
+<!-- Dashboard 2 -->
+<script src="../js/dashboard2.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- <script src="AdminLTE/dist/js/pages/dashboard2.js"></script> -->
 <!-- AdminLTE for demo purposes -->
@@ -295,6 +254,9 @@
     if(localStorage.getItem("isLoggedIn") == "false"){
       window.location.href = "index.html";
     } else {
+
+      $("#username").text(localStorage.getItem("username"));
+
       $("#signOut").click(function(e){
         localStorage.setItem("isLoggedIn","false");
         localStorage.setItem("business_type", "");

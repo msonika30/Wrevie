@@ -1,0 +1,172 @@
+.faiconscustom {
+	font-size: 100px !important;
+}
+
+.services {
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none;   /* Chrome/Safari/Opera */
+      -khtml-user-select: none;    /* Konqueror */
+      -moz-user-select: none;      /* Firefox */
+      -ms-user-select: none;       /* IE/Edge */
+      user-select: none;       
+      cursor: -webkit-grab;  
+}
+
+.servicesbox {
+	display: inline-block;
+    padding: 20px;
+    padding-left: 35px;
+}
+
+.servicesboxratings {
+	padding-top: 10px;
+    text-align: center;
+}
+
+.servicesboxratingsleft {
+	float: left;
+}
+
+.servicesboxratingsright {
+	float: right;
+}
+
+.servicesboxratingsicons {
+	margin-right: 2px;
+}
+
+.servicesup {
+    color: green;
+}
+
+.servicesdown {
+    color: red;
+}
+
+.reviewfilter {
+	display: inline-block;
+	margin-left: 20px;
+	cursor: pointer;
+	padding: 4px;
+}
+
+.reviewfiltericons {
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+}
+
+.reviewfilteractive {
+	background: grey; 
+}
+
+.displayNone {
+	display: none;
+}
+
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: "\2605";
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+fieldset {
+	padding: 0px ! important;
+	border: 0px ! important;
+}
+
+.staticrating {
+    float:left;
+    margin-left: 30px;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.staticrating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.staticrating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:100%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.staticrating:not(:checked) > label:before {
+    content: "\2605";
+}
+
+.staticrating > .isChecked {
+    color: #f70 !important;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5) !important;
+}
+
+.staticrating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}

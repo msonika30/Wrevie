@@ -34,9 +34,22 @@ $(function() {
                  type: "GET",
                  url: "http://ec2-54-84-109-19.compute-1.amazonaws.com:5000/signin.json?data="+dataStr,
                  success: function (data) {
-                 	localStorage.setItem("username", username);
-                 	localStorage.setItem("isLoggedIn", "true");
-                 	window.location.href = "dashboard1.html";
+                    var result = JSON.parse(data);
+                    if(result["status"]){
+                        var response = result["response"];
+                        localStorage.setItem("business_type", response.business_type);
+                     	localStorage.setItem("username", response.username);
+                        localStorage.setItem("full_name",response.full_name);
+                        localStorage.setItem("business_name", response.business_name);
+                        localStorage.setItem("website_url", response.website_url);
+                     	localStorage.setItem("isLoggedIn", "true");
+                     	window.location.href = "dashboard1.html";
+                    } else {
+                        $("#message").removeClass("alert-info");
+                        $("#message").removeClass("alert-success");
+                        $("#message").addClass("alert-danger");
+                        $("#message_text").text("login error: User doesn't exist. Please register or recheck your details.");
+                    }
                  },
                  error: function(error) {
                  	console.log("response: "+error);
