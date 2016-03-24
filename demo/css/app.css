@@ -127,10 +127,8 @@ span.stars span {
   padding: 20px; 
   font-size: 20px;
   line-height: 30px;
-  margin: 25px 15px 25px 15px;
+  margin: -20px 15px 0px 15px;
 }
-
-
 
 input[type="checkbox"]{
 	cursor: pointer;
@@ -303,8 +301,8 @@ td:first-child {
 }
 
 header .intro-text.wrevie-demo-header {
-  padding-top: 150px;
-  padding-bottom: 50px;
+  padding-top: 220px;
+  padding-bottom: 30px;
   font-size: 21px;
 }
 
@@ -340,7 +338,7 @@ h2, margin-mobile{
         border: 0
     }
     .navbar-default .navbar-brand {
-        font-size: 2em;
+        font-size: 2.5em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s
@@ -353,7 +351,7 @@ h2, margin-mobile{
         padding: 10px 0
     }
     .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em
+        font-size: 2em
     }
 }
 
