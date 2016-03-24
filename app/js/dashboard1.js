@@ -367,4 +367,12 @@ $(document).ready(function(){
   $('.services').mouseup(function(){
     localStorage.setItem("mousedown",false);
   })
+
+  $('#notificationsheaderbutton').click(function(){
+    if($('.content-wrapper').hasClass('margin-right')){
+      $('.content-wrapper').removeClass('margin-right');
+    } else {
+      $('.content-wrapper').addClass('margin-right');
+    }
+  })
 });
