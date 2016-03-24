@@ -20,6 +20,34 @@ $.fn.stars = function() {
         $(this).html($span);
     });
 }
+function initDemoPage(){
+	$( '#sampleReview' ).bind( 'mousewheel DOMMouseScroll', function ( e ) {
+		var div= document.getElementById('sampleReview');
+		var hasVerticalScrollbar= div.scrollHeight>div.clientHeight;
+		if(hasVerticalScrollbar){
+		    var e0 = e.originalEvent,
+		        delta = e0.wheelDelta || -e0.detail;
+		    
+		    this.scrollTop += ( delta < 0 ? 1 : -1 ) * 1;
+		    e.preventDefault();
+		}
+	});
+
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 200) {
+			$('#scrollTop').fadeIn();
+		} else {
+			$('#scrollTop').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('#scrollTop').click(function(){
+		$('html, body').animate({scrollTop : 0},400);
+		return false;
+	});
+}
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -90,6 +118,10 @@ function loadNextReview(force) {
 		}
 		$('#ratings-div').show();
 		$('#reviewContent').show();
+		$('#try-wrevie-mobile').show();
+		$('#sampleReview').stop().animate({
+            scrollTop: 0
+        }, 300);
 		if(force){
 			$('html, body').stop().animate({
 	            scrollTop: ($('#reviewContent').offset().top - 150)
@@ -126,6 +158,7 @@ function showUserTestRatings(){
 function getReviews(force){
 	try{
 		var forceVar = force;
+		$('#try-wrevie-mobile').hide();
 		$('#reviewContent').hide();
 		$('#loaderAnimation').show();
 		var data = {};
