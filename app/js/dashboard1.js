@@ -61,13 +61,13 @@ $(document).ready(function(){
                   console.log(attrprefresult.response);
                   $("#servicesDiv").children().remove();
                   for(var i in result.response.attr_names){
-                    if(result.response.attr_names[i] == "Room"){
-                      var val = attrprefresult.response.proportion_change.room*100;
+                    if(result.response.attr_names[i] == "Rooms"){
+                      var val = attrprefresult.response.proportion_change.rooms*100;
                       val = val.toFixed(3);
                       if(val >= 0)
-                        $("#servicesDiv").append('<div class="servicesbox"><i class="fa fa-building faiconscustom"></i><div class="servicesboxratings"><div><span>Room</span></div><div><i class="fa fa-arrow-up servicesboxratingsicons servicesup"></i><span>'+val+'%</span></div></div></div>');
+                        $("#servicesDiv").append('<div class="servicesbox"><i class="fa fa-building faiconscustom"></i><div class="servicesboxratings"><div><span>Rooms</span></div><div><i class="fa fa-arrow-up servicesboxratingsicons servicesup"></i><span>'+val+'%</span></div></div></div>');
                       else
-                        $("#servicesDiv").append('<div class="servicesbox"><i class="fa fa-building faiconscustom"></i><div class="servicesboxratings"><div><span>Room</span></div><div><i class="fa fa-arrow-down servicesboxratingsicons servicesdown"></i><span>'+(-1*val)+'%</span></div></div></div>');
+                        $("#servicesDiv").append('<div class="servicesbox"><i class="fa fa-building faiconscustom"></i><div class="servicesboxratings"><div><span>Rooms</span></div><div><i class="fa fa-arrow-down servicesboxratingsicons servicesdown"></i><span>'+(-1*val)+'%</span></div></div></div>');
                     } else if(result.response.attr_names[i] == "Service"){
                       var val = attrprefresult.response.proportion_change.service*100;
                       val = val.toFixed(3);
@@ -118,13 +118,13 @@ $(document).ready(function(){
                       else
                         $("#servicesDiv").append('<div class="servicesbox"><i class="fa fa-road faiconscustom"></i><div class="servicesboxratings"><div><span>Location</span></div><div><i class="fa fa-arrow-down servicesboxratingsicons servicesdown"></i><span>'+(-1*val)+'%</span></div></div></div>');
                     }
-                    $('.dropdown-menu-service-filters').append('<li><a href="#">'+result.response.attr_names[i].toLowerCase()+'</a></li>');
+                    // $('.dropdown-menu-service-filters').append('<li><a href="#">'+result.response.attr_names[i].toLowerCase()+'</a></li>');
                   }
-                  $('.dropdown-menu-service-filters > li').click(function(){
-                    $('#servicefilterinputdropdown').val($(this).text());
-                    localStorage.setItem("servicefilter",$(this).text());
-                    filterReviews();
-                  });
+                  // $('.dropdown-menu-service-filters > li').click(function(){
+                  //   $('#servicefilterinputdropdown').val($(this).text());
+                  //   localStorage.setItem("servicefilter",$(this).text());
+                  //   filterReviews();
+                  // });
                 } else {
                   alert(attrprefresult.messages[0]);
                 }
@@ -142,6 +142,34 @@ $(document).ready(function(){
        }
     })
   }
+
+  var data = {
+    business_type: localStorage.getItem("business_type")
+  };
+  var dataStr = JSON.stringify(data);
+  $.ajax({
+     type: "GET",
+     url: 'http://ec2-54-84-109-19.compute-1.amazonaws.com:5000/demo/get_attribute_names_for_business.json?data='+dataStr,
+     success: function (data) {
+        var result = JSON.parse(data);
+        //console.log(data);
+        if(result.status){
+          for(var i in result.response.attr_names){
+            $('.dropdown-menu-service-filters').append('<li><a href="#">'+result.response.attr_names[i].toLowerCase()+'</a></li>');
+          }
+          $('.dropdown-menu-service-filters > li').click(function(){
+            $('#servicefilterinputdropdown').val($(this).text());
+            localStorage.setItem("servicefilter",$(this).text());
+            filterReviews();
+          });
+        } else {
+          alert(result.messages[0]);
+        }
+     },
+     error: function(error) {
+      console.log("error: "+error);
+     }
+  })
 
   var drawBarGraph = function(labels, dataPoints) {
     $('#barChart').remove();
@@ -314,8 +342,8 @@ $(document).ready(function(){
   var notificationdata = {
     business_type: localStorage.getItem("business_type"), 
     business_id: localStorage.getItem("business_name"), 
-    start_time: "1390507571",//"1311922600",//fromTime, 
-    end_time: "1458936371"//"1311923800"//toTime
+    start_time: "1199145600",//"1390507571",//"1311922600",//fromTime, 
+    end_time: "1464566400"//"1458936371"//"1311923800"//toTime
   };
   var notificationStr = JSON.stringify(notificationdata);
   $.ajax({
