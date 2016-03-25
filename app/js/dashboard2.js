@@ -110,8 +110,8 @@ $(document).ready(function(){
 	        business_type: localStorage.getItem("business_type"), 
 	        business_id: localStorage.getItem("business_name"),//"100407", 
 	        attr_name: $('#servicefilterinputdropdown').val(),//"overall", 
-	        start_time: "1450895400",//"1311922600",//fromTime, 
-	        end_time: "1458936371",//"1311923800"//toTime
+	        start_time: new Date($('#from_date').val()).getTime()/1000,//"1450895400",//"1311922600",//fromTime, 
+	        end_time: new Date($('#to_date').val()).getTime()/1000,//"1458936371",//"1311923800"//toTime
 	        max_data_points: "50"
 	      };
 	      var dataStr = JSON.stringify(data);
